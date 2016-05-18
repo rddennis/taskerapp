@@ -1,6 +1,9 @@
 <div class="well">
   <%= user_task.description %>
-  <%= user_task.due_date %>
   <%= link_to fa_icon('pencil'), edit_user_task_path(user_task), remote: true %>
   <%= link_to fa_icon('trash'), user_task, remote: true, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+  <span class="pull-right">
+    <%= user_task.due_date.try(:stamp, 'Monday, Jan 01, 2016') %>
+  </span>
 </div>

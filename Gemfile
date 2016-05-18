@@ -27,6 +27,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'font-awesome-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'simple_form'
+gem 'stamp'
 
 
 
