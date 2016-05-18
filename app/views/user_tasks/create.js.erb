@@ -1,0 +1,10 @@
+// Re-render the list of tasks
+$("#tasks")
+  .html("<%= j (render @user_tasks)%>")
+  .slideDown(350);
+
+// Show the new button task
+$("#new-button").show();
+
+// Slide the form up and hide it
+$('#task-form').slideUp(350);
