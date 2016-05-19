@@ -23,3 +23,13 @@
 #task-form {
   display: none;
 }
+
+a.task {
+    color: black;
+
+    &:hover {
+      text-decoration: line-through;
+      background: none;
+      color: #ccc;
+    }
+}

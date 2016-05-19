@@ -16,3 +16,23 @@
 //= require bootstrap-datepicker
 //= require turbolinks
 //= require_tree .
+
+function hoverIn(event){
+  $(event.target).addClass('text-m');
+
+  $(event.target).closest('a').children('i')
+    .removeClass('fa-square-o')
+    .addClass('fa-check-square-o');
+}
+
+function hoverOut(event){
+  $(event.target).removeClass('text-danger');
+
+    $(event.target).closest('a').children('i')
+    .removeClass('fa-check-square-o')
+    .addClass('fa-square-o');
+}
+
+$(document).ready(function(){
+  $('.task').hover(hoverIn, hoverOut);
+});

@@ -1,7 +1,9 @@
 <div class="well">
-  <%= user_task.description %>
-  <%= link_to fa_icon('pencil'), edit_user_task_path(user_task), remote: true %>
-  <%= link_to fa_icon('trash'), user_task, remote: true, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<%# TODO: why doesn't the jquery still work after editing a task?  %>
+
+  <%= link_to fa_icon('square-o', text: user_task.description), user_task, remote: true, method: :delete, data: { confirm: 'Are you sure?' }, class: 'task' %>
+  <%= link_to fa_icon('pencil'), edit_user_task_path(user_task), remote: true, class: "btn btn-xs btn-primary" %>
 
   <span class="pull-right">
     <%= user_task.due_date.try(:stamp, 'Monday, Jan 01, 2016') %>
