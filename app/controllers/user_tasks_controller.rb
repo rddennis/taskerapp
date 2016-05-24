@@ -1,7 +1,9 @@
 class UserTasksController < ApplicationController
   before_action :set_user_task, only: [:show, :edit, :update, :destroy]
-  before_action :set_user_tasks, only: [:index, :create, :update, :destroy]
+  before_action :set_all_tasks, only: [:index, :create, :update, :destroy]
   before_action :authenticate_user!
+
+  rescue_from ActiveRecord::RecordNotFound, with: :invalid_task
 
   # GET /user_tasks
   # GET /user_tasks.json
@@ -35,8 +37,9 @@ class UserTasksController < ApplicationController
         format.json { render :show, status: :created, location: @user_task }
       else
         format.html { render :new }
-        format.js {render :new}
+        format.js { render :new }
         format.json { render json: @user_task.errors, status: :unprocessable_entity }
+
       end
     end
   end
@@ -51,7 +54,7 @@ class UserTasksController < ApplicationController
         format.json { render :show, status: :ok, location: @user_task }
       else
         format.html { render :edit }
-        format.js {render :edit}
+        format.js { render :new }
         format.json { render json: @user_task.errors, status: :unprocessable_entity }
       end
     end
@@ -69,9 +72,14 @@ class UserTasksController < ApplicationController
   end
 
   private
+    # Use callbacks to share common setup or constraints between actions.
 
-    def set_user_tasks
-      @user_tasks = UserTask.order(:due_date)
+    def authenticate_user!
+      redirect_to :signin unless current_user
+    end
+
+    def set_user_task
+      @user_task = UserTask.find(params[:id])
       if current_user.id == @user_task.user_id
         @user_task
       else
@@ -83,10 +91,6 @@ class UserTasksController < ApplicationController
       logger.error "Attempt to access invalid task #{params[:id]}"
       redirect_to user_tasks_url, notice: "Invalid task. Access denied."
     end
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user_task
-      @user_task = UserTask.find(params[:id])
-    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_task_params
@@ -94,6 +98,6 @@ class UserTasksController < ApplicationController
     end
 
     def set_all_tasks
-      @user_tasks = UserTask.where(user_id: current_user.id).order(:due)
+      @user_tasks = UserTask.where(user_id: current_user).order(:due_date)
     end
 end

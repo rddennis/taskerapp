@@ -19,13 +19,55 @@
 @import "bootstrap";
 @import "font-awesome";
 @import "bootstrap-datepicker3";
+@import url(https://fonts.googleapis.com/css?family=Indie+Flower);
 
 body {
   margin-top: 70px;
+  background: #29DB6B;
+  font-family: 'Indie Flower', cursive;
+  font-size: 18px;
+}
+
+.navbar-brand {
+  font-family: 'Indie Flower', cursive;
+  font-size: 20px;
+}
+
+#contents {
+  padding: 0 7% 7% 7%;
+}
+
+h1 {
+  color: white;
+  font-size: 9em;
+  text-align: center;
+  line-height: 90%;
+  text-shadow: 0 8px 6px -6px;
+}
+
+h2 {
+  font-size: 3em;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+
+.text-right {
+  padding-top: 10px;
+}
+
+.pull-right {
+  padding-left: 10px;
+  padding-right: 20px;
+  padding-top: 15px;
 }
 
 #task-form {
   display: none;
+}
+
+#tasks {
+  padding-right: 30px;
 }
 
 a.task {
@@ -36,4 +78,8 @@ a.task {
       background: none;
       color: #ccc;
     }
+}
+
+a.pencil_edit {
+    color: black;
 }

@@ -1,8 +1,8 @@
 <% unless current_page?(signin_path) %>
 <div class="text-right">
   <% if current_user %>
-  <%= image_tag current_user.small_image, class: 'img-responsive' %></li>
-  <%= link_to fa_icon('sign-out', text: 'Sign Out'), signout_path, id: 'sign_out'%>
+    <li class="pull-left"><%= image_tag current_user.small_image, class: 'img-responsive' %></li>
+    <li class="pull-right"><%= link_to fa_icon('sign-out', text: 'Sign Out'), signout_path, id: 'sign_out'%></li>
   <% else %>
     <%= link_to fa_icon('sign-in', text: 'Sign in with Facebook'), '/auth/facebook', id: 'sign_in' %>
   <% end %>
