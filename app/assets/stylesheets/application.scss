@@ -20,6 +20,10 @@
 @import "font-awesome";
 @import "bootstrap-datepicker3";
 
+body {
+  margin-top: 70px;
+}
+
 #task-form {
   display: none;
 }
