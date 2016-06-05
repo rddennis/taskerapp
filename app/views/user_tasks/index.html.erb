@@ -2,21 +2,18 @@
 
 <% if current_user %>
 <h1>Tasker</h1>
-<h2>Keeping Your Tasks in Order</h2>
-<div class="row">
+<h4>Keeping Your Tasks in Order</h4>
 
 <!-- Add Task Area -->
-  <div class="col-sm-4">
+  <div class="adding_tasks">
     <%= link_to fa_icon('plus', text: 'Add a task'), new_user_task_path, remote: true, class: 'btn btn-block btn-default', id: 'new-button' %>
 <!-- Form to be populated by JQuery -->
     <div id="task-form"></div>
   </div>
 
 <!-- Task Area -->
-<div class="col-sm-8">
-  <div id="tasks">
+<div class="showing_tasks" id= "tasks">
     <%= render @user_tasks %>
-    </div>
 </div>
 
 <% else %>

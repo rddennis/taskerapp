@@ -22,15 +22,38 @@
 @import url(https://fonts.googleapis.com/css?family=Indie+Flower);
 
 body {
-  margin-top: 70px;
-  background: #29DB6B;
+  padding-top: 70px;
+  background: url(image_path("workspace.jpg")) no-repeat center center fixed;
+  background-size: cover;
   font-family: 'Indie Flower', cursive;
   font-size: 18px;
 }
+.navbar-default {
+  background: rgba(0,0,0,0.4);
+  border: none;
+}
 
-.navbar-brand {
+a {
+  color: white;
+
+  &:hover {
+    color: #b3b3b3;
+    text-decoration: none;
+  }
+}
+
+.navbar-default .navbar-brand {
   font-family: 'Indie Flower', cursive;
   font-size: 20px;
+  color: white;
+
+  &:hover {
+    color: #b3b3b3;
+  }
+}
+
+#notice {
+  color: white;
 }
 
 #contents {
@@ -39,35 +62,32 @@ body {
 
 h1 {
   color: white;
-  font-size: 9em;
+  font-size: 30vh;
   text-align: center;
   line-height: 90%;
   text-shadow: 0 8px 6px -6px;
 }
 
-h2 {
-  font-size: 3em;
+h4 {
+  color: #b3b3b3;
+  font-size: 10vh;
   text-align: center;
   padding-bottom: 10px;
 }
 
-
-.text-right {
-  padding-top: 10px;
+h4 {
+  font-size: 7vh;
 }
 
 .pull-right {
-  padding-left: 10px;
-  padding-right: 20px;
-  padding-top: 15px;
+  padding-left: 15px;
+  height: 50px;
+  line-height: 50px;
+  vertical-align: middle;
 }
 
 #task-form {
   display: none;
-}
-
-#tasks {
-  padding-right: 30px;
 }
 
 a.task {
@@ -82,4 +102,48 @@ a.task {
 
 a.pencil_edit {
     color: black;
+}
+
+
+.adding_tasks, .showing_tasks {
+  width: 40%;
+  margin: 0 auto;
+}
+
+.adding_tasks {
+  padding-bottom: 50px;
+}
+
+.showing_tasks {
+  width: 60%;
+}
+
+.sign_in_user_or_show_user {
+  width: 200px;
+  margin: 0 auto;
+
+  li {
+      display: inline-block;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+  .adding_tasks, .showing_tasks {
+    width: 90%;
+  }
+}
+
+.btn-info {
+  margin: 0 auto;
+  background: white;
+  border: white;
+  color: black;
+
+  &:hover {
+    background: #b3b3b3;
+  }
+}
+
+#submit-button {
+  text-align: center;
 }
