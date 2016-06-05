@@ -44,6 +44,11 @@ a {
     color: #b3b3b3;
     text-decoration: none;
   }
+
+  &:visited {
+    color: white;
+    text-decoration: none;
+  }
 }
 
 .navbar-default .navbar-brand {
