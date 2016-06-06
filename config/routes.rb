@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
  root 'user_tasks#index'
 
- get "auth/facebook/callback" => 'sessions#create'
+ get "auth/:provider/callback" => 'sessions#create'
  get '/signin' => 'sessions#new', as: :signin
  get '/signout' => 'sessions#destroy', as: :signout
 
